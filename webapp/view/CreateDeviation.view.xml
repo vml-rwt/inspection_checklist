@@ -1,0 +1,72 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="YMII_IINSP_CHECKLIST.YMII_IINSP_CHECKLIST.controller.CreateDeviation" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>CreateDeviation}" id="idCreateViewPage">
+				<content>
+					<ObjectHeader xmlns="sap.m" title="{i18n>Production_Order}" id="Idorder" icon="sap-icon://product" backgroundDesign="Solid" condensed="true">
+						
+					</ObjectHeader>
+					<IconTabBar selectedKey="idDropDowns" id="bar0">
+						<items>
+							<IconTabFilter id="idDropDowns" icon="sap-icon://write-new" text="Input">
+								<content>
+									<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout"
+										backgroundDesign="Solid" columnsM="3">
+										<sap.ui.layout.form:content>
+											<Label text="{i18n>Subject}" required="true"/>
+											<Select id="idSubject" items="{ path: 'DropDown>/DeviationtoSubject/results' }" width="auto">
+												<core:Item key="{DropDown>Codegrp}:{DropDown&gt;Code}" text="{DropDown>Code}-{DropDown&gt;Cdtext}"/>
+											</Select>
+											<Label text="{i18n>Problem}" required="true"/>
+											<Select id="idProblem" items="{ path: 'DropDown>/DeviationtoProblem/results' }" width="auto">
+												<core:Item key="{DropDown>Codegrp}:{DropDown&gt;Code}" text="{DropDown>Code}-{DropDown&gt;Cdtext}"/>
+											</Select>
+											<Label text="{i18n>Problem_Part}" required="true"/>
+											<Select id="idProblemPart" items="{ path: 'DropDown>/DeviationtoProblemPart/results' }" width="auto">
+												<core:Item key="{DropDown>Codegrp}:{DropDown&gt;Code}" text="{DropDown>Code}-{DropDown&gt;Cdtext}"/>
+											</Select>
+											<Label text="{i18n>Owner}" required="true"/>
+											<Select id="idOwner" items="{ path: 'DropDown>/DeviationtoOwner/results' }" width="auto">
+												<core:Item key="{DropDown>Codegrp}:{DropDown&gt;Code}" text="{DropDown>Code}-{DropDown&gt;Cdtext}"/>
+											</Select>
+										    <Label text="{i18n>FTTirrelevant}"/>
+											<CheckBox id="idFttrel" selected="{DropDown>/Fttrel}"/>
+											<Label text="{i18n>Description}" required="true"/>
+											<TextArea width="auto" id="idDesc" value="{DropDown>/Description}"/>
+										</sap.ui.layout.form:content>
+									</sap.ui.layout.form:SimpleForm>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="Attachment" icon="sap-icon://attachment" id="idAttachment" iconColor="Neutral">
+								<content>
+									<UploadCollection id="UploadCollection" multiple="false" maximumFilenameLength="250" change="onChange" fileDeleted="onFileDeleted"
+										items="{/NotifAttachmentSet}" fileRenamed="onFileRenamed" fileSizeExceed="onFileSizeExceed" filenameLengthExceed="onFilenameLengthExceed"
+										typeMissmatch="onTypeMissmatch" uploadComplete="onUploadComplete" beforeUploadStarts="onBeforeUploadStarts" mode="SingleSelectMaster"
+										noDataText="{i18>NoAttachments}" instantUpload="false" uploadUrl="/sap/opu/odata/sap/YMII_INSPOPER_CHECKLIST_SRV/NotifAttachmentSet">
+										<items>
+											<UploadCollectionItem id="_collectionItemId" contributor="" documentId="{NotifNo}" fileName="{Filename}" mimeType="{Mimetype}" url="{Url}"
+												enableEdit="false" enableDelete="false" visibleDelete="false" visibleEdit="false">
+												<!--	<attributes>
+													<ObjectAttribute text="{Modifier}" id="__attribute0" title="{i18n>UploadedBy}"/>
+													<ObjectAttribute text="{Lastmoddate} {Lastmodtime}" id="__attribute1" title="{i18n>UploadedOn}"/>
+												</attributes>-->
+											</UploadCollectionItem>
+										</items>
+									</UploadCollection>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<Bar>
+						<contentRight>
+							<Button text="{i18n>Submit}" icon="sap-icon://save" type="Emphasized" width="auto" press="onSubmitBtnPress" tooltip="{i18n>Save}"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

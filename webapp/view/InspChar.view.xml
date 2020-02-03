@@ -1,0 +1,63 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="YMII_IINSP_CHECKLIST.YMII_IINSP_CHECKLIST.controller.InspChar" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>DispInspChar}" id="IdPageInspChar">
+				<content>
+					<ObjectHeader xmlns="sap.m" title="" id="header0" backgroundDesign="Solid" condensed="true">
+						<attributes>
+							<ObjectAttribute id="idWorkCentre" title="{i18n>Workcentre}"/>
+						</attributes>
+					</ObjectHeader>
+					<Table noDataText="{i18n>NoCharExist}" id="IdInspChar" items="{/InspoperCheckpointSet}" width="auto" growingScrollToLoad="true"
+						growing="true" backgroundDesign="Translucent" updateFinished="OnUpdateFinished">
+						<items>
+							<ColumnListItem >
+								<Text text="{CharDescr}"/>
+								<Text text="{InfoField3}"/>
+								<!--<Link text="{Doknr}" href="{Url}"/>-->
+								<!--<ImageContent class="sapUiLargeMarginTop sapUiLargeMarginBottom" src="{Url}" description="Icon" press="onImagepress"></ImageContent>-->
+								<Image src="{Url}" width="20%" height="auto" densityAware="false" press="onImagepress" visible="{= ${Url} ? true : false}"/>
+								<SegmentedButton selectedKey="{Evaluation}">
+									<items>
+										<SegmentedButtonItem id="Ok" text="{i18n>Ok}" key="A" press="OnPressOk"/>
+										<SegmentedButtonItem id="Nok" text="{i18n>Nok}" key="R" press="OnPressNok"/>
+									</items>
+								</SegmentedButton>
+							</ColumnListItem>
+						</items>
+						<columns>
+							<Column demandPopin="true" width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Tablet">
+								<header>
+									<Label text="{i18n>CheckPoint}" design="Bold"/>
+								</header>
+							</Column>
+							<Column id="ColCriteria" demandPopin="true" width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Tablet" visible="false">
+								<header>
+									<Label text="{i18n>Criteria}" design="Bold"/>
+								</header>
+							</Column>
+							<Column id="ColImage" demandPopin="true" width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Tablet" visible="false">
+								<header>
+									<Label text="{i18n>Image}" design="Bold"/>
+								</header>
+							</Column>
+							<Column demandPopin="true" width="auto" hAlign="Left" vAlign="Middle" minScreenWidth="Tablet">
+								<header>
+									<Label text="{i18n>OkNok}" design="Bold"/>
+								</header>
+							</Column>
+						</columns>
+					</Table>
+				</content>
+				<footer>
+					<Bar id="bar0">
+						<contentRight>
+							<Button id="IdButton" press="onCompleteInsp" text="{i18n>CompleteInspection}" type="Emphasized" width="auto"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

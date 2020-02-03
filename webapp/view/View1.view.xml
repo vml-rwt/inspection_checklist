@@ -1,0 +1,52 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:html="http://www.w3.org/1999/xhtml" xmlns="sap.m"
+	controllerName="YMII_IINSP_CHECKLIST.YMII_IINSP_CHECKLIST.controller.View1" displayBlock="true">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" id="form1"
+						layout="ResponsiveGridLayout" columnsL="4" columnsM="4" width="auto" labelSpanM="3">
+						<sap.ui.layout.form:content>
+							<sap.ui.core:Title text="" id="title0" level="H3"/>
+							<Label id="label1" text="{i18n>Prod/Vin}" design="Bold" required="true"/>
+							<SearchField xmlns="sap.m" placeholder="{i18n>EnterProd/Vin}" id="InOrderVin" search="onSearch" width="auto"/>
+							<Button press="onPress" icon="sap-icon://bar-code" width="10%" type="Emphasized"/>
+						</sap.ui.layout.form:content>
+					</sap.ui.layout.form:SimpleForm>
+					<Table id="IdInspOper"  items="{InspectOperations>/}" width="auto" growingScrollToLoad="true" growing="true" backgroundDesign="Translucent"
+						noDataText="{i18n>NoInspOperExist}" visible="false">
+						<columns>
+							<Column demandPopin="true" width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet">
+								<header>
+									<Label text="{i18n>Qpoint}" design="Bold"/>
+								</header>
+							</Column>
+							<Column demandPopin="true" width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet">
+								<header>
+									<Label text="{i18n>Workcentre}" design="Bold"/>
+								</header>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" detailPress="OnItemPress" press="OnItemPress" id="idColumnlist">
+								<cells>
+									<Text text="{InspectOperations>Qpoint}"/>
+								</cells>
+								<cells>
+									<Text text="{InspectOperations>Workcentre}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+						<headerToolbar>
+							<Toolbar width="auto" design="Info">
+								<content>
+									<Title text="{i18n>InspOperations}" width="auto" titleStyle="H5" level="H5" textAlign="Center"/>
+								</content>
+							</Toolbar>
+						</headerToolbar>
+					</Table>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

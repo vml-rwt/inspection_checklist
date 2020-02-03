@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog class="sapUiPopupWithPadding" contentHeight="70%" contentWidth="70%">
+		<content>
+			<Image src="{Image>/src}" width="100%" densityAware="false"/>
+		</content>
+		<buttons>
+			<Button xmlns="sap.m" text="Close" press="OnClose"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

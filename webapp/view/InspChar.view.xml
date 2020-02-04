@@ -49,11 +49,15 @@
 							</Column>
 						</columns>
 					</Table>
-					<Bar>
+					<OverflowToolbar id="otbFooter" visible="{path:'InspectOperations>/0/FTT_Decision',formatter:'.formatterFTTDecide'}">
+						<ToolbarSpacer/>
 						<Text text="{i18n>FTT_Decision}"></Text>
-						<Button text="{i18n>Ok}" type="Accept" press="onFTTDecided"></Button>
-						<Button text="{i18n>Nok}" type="Reject" press="onFTTDecided"></Button>
-					</Bar>
+						<Button text="{i18n>Ok}" type="Accept" width="20%" press="onFTTDecided"></Button>
+						<Button text="{i18n>Nok}" type="Reject" width="20%" press="onFTTDecided"></Button>
+						<ToolbarSpacer/>
+					</OverflowToolbar>
+					<!--<Bar visible="{path:'InspectOperations>/0/FTT_Decision',formatter:'.formatterFTTDecide'}">-->
+					<!--</Bar>-->
 				</content>
 				<footer>
 					<Bar id="bar0">

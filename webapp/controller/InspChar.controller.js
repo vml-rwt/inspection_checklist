@@ -158,6 +158,8 @@ sap.ui.define([
 			this.getView().getModel("Image").setData("");
 		},
 
+		// code changed by vimal.
+		// Send relevant fields to erp in based on OK/NOK clicked.
 		formatterFTTDecide: function (FTTFlag) {
 			if (FTTFlag === "X")
 				return true;
@@ -169,6 +171,11 @@ sap.ui.define([
 		// Send relevant fields to erp in based on OK/NOK clicked.
 		onFTTDecided: function (oEvent) {
 			var sSelectionType = oEvent.getSource().getType();
+			if (sSelectionType == "Accept") {
+
+			} else {
+
+			}
 		}
 
 	});

@@ -2,7 +2,7 @@
 	controllerName="YMII_IINSP_CHECKLIST.YMII_IINSP_CHECKLIST.controller.View1" displayBlock="true">
 	<App id="idAppControl">
 		<pages>
-			<Page title="{i18n>title}" showFooter="{path:'InspectOperations>/0/FTT_Decision',formatter:'.formatterFTTDecide'}">
+			<Page title="{i18n>title}">
 				<content>
 					<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" id="form1"
 						layout="ResponsiveGridLayout" columnsL="4" columnsM="4" width="auto" labelSpanM="3">

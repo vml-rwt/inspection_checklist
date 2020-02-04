@@ -1,0 +1,61 @@
+[{
+	"FTT_Decision": "X",
+	"Barcode": "410003186433",
+	"Order": "410003186433",
+	"Insplot": "040000900156",
+	"Inspoper": "0010",
+	"Qpoint": "Q40",
+	"Workcentre": "A04R",
+	"Plant": "8500",
+	"MiiLine": "A10"
+}, {
+	"FTT_Decision": "X",
+	"Barcode": "410003186433",
+	"Order": "410003186433",
+	"Insplot": "040000900156",
+	"Inspoper": "0020",
+	"Qpoint": "Q50",
+	"Workcentre": "A05M",
+	"Plant": "8500",
+	"MiiLine": "A10"
+}, {
+	"FTT_Decision": "X",
+	"Barcode": "410003186433",
+	"Order": "410003186433",
+	"Insplot": "040000900156",
+	"Inspoper": "0030",
+	"Qpoint": "Q60",
+	"Workcentre": "A09M",
+	"Plant": "8500",
+	"MiiLine": "A10"
+}, {
+	"FTT_Decision": "X",
+	"Barcode": "410003186433",
+	"Order": "410003186433",
+	"Insplot": "040000900156",
+	"Inspoper": "0040",
+	"Qpoint": "Q70",
+	"Workcentre": "AT04",
+	"Plant": "8500",
+	"MiiLine": "A10"
+}, {
+	"FTT_Decision": "X",
+	"Barcode": "410003186433",
+	"Order": "410003186433",
+	"Insplot": "040000900156",
+	"Inspoper": "0050",
+	"Qpoint": "Q80",
+	"Workcentre": "AY05",
+	"Plant": "8500",
+	"MiiLine": "A10"
+}, {
+	"FTT_Decision": "X",
+	"Barcode": "410003186433",
+	"Order": "410003186433",
+	"Insplot": "040000900156",
+	"Inspoper": "0060",
+	"Qpoint": "Q90",
+	"Workcentre": "AY03",
+	"Plant": "8500",
+	"MiiLine": "A10"
+}]

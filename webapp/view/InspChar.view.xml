@@ -49,6 +49,11 @@
 							</Column>
 						</columns>
 					</Table>
+					<Bar>
+						<Text text="{i18n>FTT_Decision}"></Text>
+						<Button text="{i18n>Ok}" type="Accept" press="onFTTDecided"></Button>
+						<Button text="{i18n>Nok}" type="Reject" press="onFTTDecided"></Button>
+					</Bar>
 				</content>
 				<footer>
 					<Bar id="bar0">

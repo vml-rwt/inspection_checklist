@@ -11,10 +11,12 @@ sap.ui.define([
 			this._oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
 			this._oODataModel = this.getOwnerComponent().getModel();
 
-			var oTable = this.getView().byId("IdInspOper");
-			this.oTemplate = oTable.getBindingInfo("items").template;
+			//	var oTable = this.getView().byId("IdInspOper");
+			//	this.oTemplate = oTable.getBindingInfo("items").template;
 			//	oTable.unbindAggregation("items");
 		},
+
+	
 
 		onPress: function (oEvent) {
 			try {
@@ -48,18 +50,6 @@ sap.ui.define([
 			// filter binding
 
 			var oTable = this.getView().byId("IdInspOper");
-			//  var oColumnlist = this.getView().byId("idColumnlist");
-
-			/*			oTable.bindAggregation("items", {
-							path: "/InspectionOperationsSet",
-			                template: this.oTemplate,
-							filters: afilters
-						});
-			*/
-			/* var oBinding = oTable.getBinding("items");
-			oBinding.filter(afilters);*/
-
-			// oTable.setVisible(true);
 
 			var mParam = {
 				filters: afilters,
@@ -82,14 +72,6 @@ sap.ui.define([
 			//Navigate to Stock Items View
 			var sSelectedPath = oEvent.getSource().getBindingContextPath();
 			var oObject = this.getOwnerComponent().getModel("InspectOperations").getObject(sSelectedPath);
-			/*			var oData = [];
-						oData.Insplot = oEvent.getSource().getBindingContext().getProperty("Insplot");
-						oData.Inspoper = oEvent.getSource().getBindingContext().getProperty("Inspoper");
-						oData.Qpoint = oEvent.getSource().getBindingContext().getProperty("Qpoint");
-						oData.Workcentre = oEvent.getSource().getBindingContext().getProperty("Workcentre");
-						oData.Order = oEvent.getSource().getBindingContext().getProperty("Order");
-						oData.Plant = oEvent.getSource().getBindingContext().getProperty("Plant");
-						oData.MiiLine = oEvent.getSource().getBindingContext().getProperty("MiiLine");*/
 
 			var oModel = this.getView().getModel("InspOper");
 			oModel.setData(oObject);

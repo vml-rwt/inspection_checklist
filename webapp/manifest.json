@@ -38,10 +38,7 @@
 			"tablet": true,
 			"phone": true
 		},
-		"supportedThemes": [
-			"sap_hcb",
-			"sap_belize"
-		]
+		"supportedThemes": ["sap_hcb", "sap_belize"]
 	},
 	"sap.ui5": {
 		"rootView": {
@@ -80,7 +77,8 @@
 			"InspOper": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},
-				"preload": false
+				"preload": true,
+				"uri": "mockdata/checklist.json"
 			},
 			"DropDown": {
 				"type": "sap.ui.model.json.JSONModel",
@@ -95,15 +93,14 @@
 			"InspectOperations": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},
-				"preload": true
+				"preload": true,
+				"uri": "mockdata/inspectionList.json"
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -115,30 +112,23 @@
 				"controlId": "idAppControl",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "RouteView1",
-					"pattern": "RouteView1",
-					"target": [
-						"TargetView1"
-					]
-				},
-				{
-					"name": "View1",
-					"pattern": "",
-					"target": "TargetView1"
-				},
-				{
-					"name": "InspChar",
-					"pattern": "InspChar",
-					"target": "InspChar"
-				},
-				{
-					"name": "CreateDeviation",
-					"pattern": "CreateDeviation/{Order}",
-					"target": "CreateDeviation"
-				}
-			],
+			"routes": [{
+				"name": "RouteView1",
+				"pattern": "RouteView1",
+				"target": ["TargetView1"]
+			}, {
+				"name": "View1",
+				"pattern": "",
+				"target": "TargetView1"
+			}, {
+				"name": "InspChar",
+				"pattern": "InspChar",
+				"target": "InspChar"
+			}, {
+				"name": "CreateDeviation",
+				"pattern": "CreateDeviation/{Order}",
+				"target": "CreateDeviation"
+			}],
 			"targets": {
 				"TargetView1": {
 					"viewType": "XML",

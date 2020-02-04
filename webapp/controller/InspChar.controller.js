@@ -156,6 +156,19 @@ sap.ui.define([
 		OnClose: function (oEvent) {
 			this._oImgDialog.close();
 			this.getView().getModel("Image").setData("");
+		},
+
+		formatterFTTDecide: function (FTTFlag) {
+			if (FTTFlag === "X")
+				return true;
+			else
+				return false;
+		},
+
+		// code changed by vimal.
+		// Send relevant fields to erp in based on OK/NOK clicked.
+		onFTTDecided: function (oEvent) {
+			var sSelectionType = oEvent.getSource().getType();
 		}
 
 	});

@@ -13,8 +13,8 @@
 							<Button press="onPress" icon="sap-icon://bar-code" width="10%" type="Emphasized"/>
 						</sap.ui.layout.form:content>
 					</sap.ui.layout.form:SimpleForm>
-					<Table id="IdInspOper" width="auto" growingScrollToLoad="true" items="{InspectOperations>/}" growing="true" backgroundDesign="Translucent"
-						noDataText="{i18n>NoInspOperExist}" visible="true">
+					<Table id="IdInspOper"  items="{InspectOperations>/}" width="auto" growingScrollToLoad="true" growing="true" backgroundDesign="Translucent"
+						noDataText="{i18n>NoInspOperExist}" visible="false">
 						<columns>
 							<Column demandPopin="true" width="auto" hAlign="Center" vAlign="Middle" minScreenWidth="Tablet">
 								<header>

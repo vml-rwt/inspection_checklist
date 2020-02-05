@@ -57,6 +57,7 @@ sap.ui.define([
 			afilters.push(oFilter);
 			oFilter = new Filter("MiiLine", FilterOperator.EQ, this.MiiLine);
 			afilters.push(oFilter);
+		
 			// filter binding
 			var oTable = this.getView().byId("IdInspChar");
 			var oBinding = oTable.getBinding("items");
@@ -97,38 +98,34 @@ sap.ui.define([
 			});
 		},
 
-		onCompleteInsp: function (oEvent) {
+		onCompleteInsp: function (oEvent, Ok_NokFlag) {
 			var oModel = this.getOwnerComponent().getModel();
 			var oTable = this.getView().byId("IdInspChar");
 			var aData = (oTable.getItems() || []).map(function (oItem) {
 				// assuming that you are using the default model  
 				return oItem.getBindingContext().getObject();
 			});
-			for (var i = 0; i < aData.length; i++) {
 
+			for (var i = 0; i < aData.length; i++) {
 				if (aData[i]) {
 					aData[i].Qpoint = this.Qpoint;
 					aData[i].Order = this.Order;
+					aData[i].FTT_Decided_flag   = typeof (oEvent) == 'string' ? 'X' : ' '; // code added by vimal
+					aData[i].FTT_Decision_OKNOK = Ok_NokFlag ? Ok_NokFlag : ' '; // code added by vimal
 					var mParam = {
 						async: true,
 						success: function (oData, oResponse) {
-
 							this.getView().byId("IdPageInspChar").setBusy(false);
 							sap.m.MessageToast.show(this._oResourceBundle.getText("InspectionCompleteSuccess"));
 							var oBinding = oTable.getBinding("items");
 							oBinding.getModel().resetChanges();
-
 						}.bind(this),
 						error: function (error) {
-
 							sap.m.MessageToast.show(JSON.parse(error.responseText).error.message.value);
 						}
 					};
-
 					oModel.setUseBatch(true);
-
 					oModel.create("/InspoperCheckpointSet", aData[i], mParam);
-
 				}
 			}
 		},
@@ -167,15 +164,16 @@ sap.ui.define([
 				return false;
 		},
 
-		// code changed by vimal.
-		// Send relevant fields to erp in based on OK/NOK clicked.
+		// prepare relevant fields which are to be send to erp in based on OK/NOK clicked.
 		onFTTDecided: function (oEvent) {
 			var sSelectionType = oEvent.getSource().getType();
+			var sOkNok = "";
 			if (sSelectionType == "Accept") {
-
+				sOkNok = 'X';
 			} else {
-
+				sOkNok = '';
 			}
+			this.onCompleteInsp('X', sOkNok);
 		}
 
 	});

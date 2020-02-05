@@ -11,8 +11,8 @@ sap.ui.define([
 			this._oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
 			this._oODataModel = this.getOwnerComponent().getModel();
 
-			//	var oTable = this.getView().byId("IdInspOper");
-			//	this.oTemplate = oTable.getBindingInfo("items").template;
+				var oTable = this.getView().byId("IdInspOper");
+				this.oTemplate = oTable.getBindingInfo("items").template;
 			//	oTable.unbindAggregation("items");
 		},
 

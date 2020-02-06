@@ -57,7 +57,7 @@ sap.ui.define([
 			afilters.push(oFilter);
 			oFilter = new Filter("MiiLine", FilterOperator.EQ, this.MiiLine);
 			afilters.push(oFilter);
-		
+
 			// filter binding
 			var oTable = this.getView().byId("IdInspChar");
 			var oBinding = oTable.getBinding("items");
@@ -105,13 +105,24 @@ sap.ui.define([
 				// assuming that you are using the default model  
 				return oItem.getBindingContext().getObject();
 			});
+			var oVoew = this.getView();
+			var FTT_Decided = "";
+			var FTT_DecisionOkNok = "";
+
+			if (this.getView().byId("otbFooter").getVisible()) {
+				FTT_Decided = "X";
+				if (this.getView().byId("FTT_decision_OKNOK").getSelectedKey() == "OK") {
+					FTT_DecisionOkNok = "X";
+				}
+			}
 
 			for (var i = 0; i < aData.length; i++) {
 				if (aData[i]) {
-					aData[i].Qpoint = this.Qpoint;
+					if (!aData[i].Infofield || (FTT_Decided && aData[i].Infofield))
+						aData[i].Qpoint = this.Qpoint;
 					aData[i].Order = this.Order;
-					aData[i].FTT_Decided_flag   = typeof (oEvent) == 'string' ? 'X' : ' '; // code added by vimal
-					aData[i].FTT_Decision_OKNOK = Ok_NokFlag ? Ok_NokFlag : ' '; // code added by vimal
+					aData[i].FTT_Decided_flag = FTT_Decided; // code added by vimal
+					aData[i].FTT_Decision_OKNOK = FTT_DecisionOkNok = "";; // code added by vimalss
 					var mParam = {
 						async: true,
 						success: function (oData, oResponse) {
@@ -132,15 +143,11 @@ sap.ui.define([
 
 		onImagepress: function (oEvent) {
 			var oSrc = oEvent.getSource().getProperty("src");
-
 			if (oSrc) {
 				var oData = [];
 				oData.src = oSrc;
-
 				var oImgModel = this.getView().getModel("Image");
-
 				oImgModel.setData(oData);
-
 				if (!this._oImgDialog) {
 					this._oImgDialog = sap.ui.xmlfragment("YMII_IINSP_CHECKLIST.YMII_IINSP_CHECKLIST.view.Image", this);
 				}
@@ -165,15 +172,25 @@ sap.ui.define([
 		},
 
 		// prepare relevant fields which are to be send to erp in based on OK/NOK clicked.
-		onFTTDecided: function (oEvent) {
-			var sSelectionType = oEvent.getSource().getType();
-			var sOkNok = "";
-			if (sSelectionType == "Accept") {
-				sOkNok = 'X';
+		// code not required now.
+		// onFTTDecided: function (oEvent) {
+		// 	var sSelectionType = oEvent.getSource().getType();
+		// 	var sOkNok = "";
+		// 	if (sSelectionType == "Accept") {
+		// 		sOkNok = 'X';
+		// 	} else {
+		// 		sOkNok = '';
+		// 	}
+		// 	this.onCompleteInsp('X', sOkNok);
+		// },
+
+		//display/hide row based on infofield flag.
+		fncheckInfoField: function (infoField) {
+			if (infoField == 'X') {
+				return false;
 			} else {
-				sOkNok = '';
+				return true;
 			}
-			this.onCompleteInsp('X', sOkNok);
 		}
 
 	});

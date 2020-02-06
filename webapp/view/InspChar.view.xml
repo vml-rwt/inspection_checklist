@@ -12,7 +12,7 @@
 					<Table noDataText="{i18n>NoCharExist}" id="IdInspChar" items="{/InspoperCheckpointSet}" width="auto" growingScrollToLoad="true"
 						growing="true" backgroundDesign="Translucent" updateFinished="OnUpdateFinished">
 						<items>
-							<ColumnListItem >
+							<ColumnListItem visible="{path:'Infofield',formatter:'.fncheckInfoField'}">
 								<Text text="{CharDescr}"/>
 								<Text text="{InfoField3}"/>
 								<!--<Link text="{Doknr}" href="{Url}"/>-->
@@ -49,16 +49,20 @@
 							</Column>
 						</columns>
 					</Table>
-					
 					<!--overflow toolbar added by vimal-->
 					<OverflowToolbar id="otbFooter" visible="{path:'InspOper>/FTT_Decision',formatter:'.formatterFTTDecide'}">
 						<ToolbarSpacer/>
 						<Text text="{i18n>FTT_Decision}"></Text>
-						<Button text="{i18n>Ok}" type="Accept" width="20%" press="onFTTDecided"></Button>
-						<Button text="{i18n>Nok}" type="Reject" width="20%" press="onFTTDecided"></Button>
+						<SegmentedButton id="FTT_decision_OKNOK" selectedKey="OK">
+							<items>
+								<SegmentedButtonItem text="{i18n>Ok}" key="OK"/>
+								<SegmentedButtonItem text="{i18n>Nok}" key="NOK"/>
+							</items>
+						</SegmentedButton>
+						<!--<Button text="{i18n>Ok}" type="Accept" width="20%" press="onFTTDecided"></Button>-->
+						<!--<Button text="{i18n>Nok}" type="Reject" width="20%" press="onFTTDecided"></Button>-->
 						<ToolbarSpacer/>
 					</OverflowToolbar>
-				
 				</content>
 				<footer>
 					<Bar id="bar0">

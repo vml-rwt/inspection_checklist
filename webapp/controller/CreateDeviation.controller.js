@@ -37,12 +37,6 @@ sap.ui.define([
 
 			//	this.sPlant = oEvent.getParameters("data").arguments.Plant;
 			this.sOrder = oEvent.getParameters("data").arguments.Order;
-
-			if (this.sOrder) {
-
-				this.getView().byId("Idorder").setTitle("Production Order:" + this.sOrder);
-			}
-
 			this.fnReadDropDownValues();
 		},
 
@@ -118,6 +112,7 @@ sap.ui.define([
 								oPayload.Subject = oView.byId("idSubject").getSelectedKey();
 								oPayload.Fttrel = sFttrel;
 								oPayload.Description = oView.byId("idDesc").getValue();
+								oPayload.inspectionlot = this.getView().getModel("InspOper").getData().Insplot;
 
 								var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({
 									pattern: "dd/MM/yyyy"

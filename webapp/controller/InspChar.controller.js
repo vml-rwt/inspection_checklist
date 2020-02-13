@@ -41,9 +41,7 @@ sap.ui.define([
 			this.Plant = oData.Plant;
 			this.MiiLine = oData.MiiLine;
 
-			if (this.Qpoint) {
-				this.getView().byId("header0").setTitle("Q point: " + this.Qpoint);
-			}
+	
 			if (this.Workcentre) {
 				this.getView().byId("idWorkCentre").setText(this.Workcentre);
 			}
@@ -122,7 +120,7 @@ sap.ui.define([
 						aData[i].Qpoint = this.Qpoint;
 					aData[i].Order = this.Order;
 					aData[i].FTT_Decided_flag = FTT_Decided; // code added by vimal
-					aData[i].FTT_Decision_OKNOK = FTT_DecisionOkNok = "";; // code added by vimalss
+					aData[i].FTT_Decision_OKNOK = FTT_DecisionOkNok;  // code added by vimalss
 					var mParam = {
 						async: true,
 						success: function (oData, oResponse) {

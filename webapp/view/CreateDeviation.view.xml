@@ -4,8 +4,15 @@
 		<pages>
 			<Page title="{i18n>CreateDeviation}" id="idCreateViewPage">
 				<content>
-					<ObjectHeader xmlns="sap.m" title="{i18n>Production_Order}" id="Idorder" icon="sap-icon://product" backgroundDesign="Solid" condensed="true">
-						
+					<ObjectHeader xmlns="sap.m"  title="{i18n>Prod}:{InspOper>/Qpoint}" responsive="true" id="Idorder" icon="sap-icon://product"
+						backgroundDesign="Solid">
+						<attributes>
+							<ObjectAttribute id="idProdOrder" title="{i18n>Prod}" text="{InspOper>/Order}"/>
+							<ObjectAttribute id="idInspLot"  title="{i18n>Inspection} {i18n>Lot}" text="{InspOper>/Insplot}"/>
+							<ObjectAttribute id="idMaterial" title="{i18n>Material}" text="{InspOper>/Material}"/>
+							<ObjectAttribute id="idInspector" title="{i18n>Inspector}" text="{InspOper>/Inspector}"/>
+							<ObjectAttribute id="idWorkCentre" title="{i18n>Workcentre}" text="{InspOper>/Workcentre}"/>
+						</attributes>
 					</ObjectHeader>
 					<IconTabBar selectedKey="idDropDowns" id="bar0">
 						<items>
@@ -30,7 +37,7 @@
 											<Select id="idOwner" items="{ path: 'DropDown>/DeviationtoOwner/results' }" width="auto">
 												<core:Item key="{DropDown>Codegrp}:{DropDown&gt;Code}" text="{DropDown>Code}-{DropDown&gt;Cdtext}"/>
 											</Select>
-										    <Label text="{i18n>FTTirrelevant}"/>
+											<Label text="{i18n>FTTirrelevant}"/>
 											<CheckBox id="idFttrel" selected="{DropDown>/Fttrel}"/>
 											<Label text="{i18n>Description}" required="true"/>
 											<TextArea width="auto" id="idDesc" value="{DropDown>/Description}"/>

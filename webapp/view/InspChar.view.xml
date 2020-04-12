@@ -4,7 +4,7 @@
 		<pages>
 			<Page title="{i18n>DispInspChar}" id="IdPageInspChar">
 				<content>
-					<ObjectHeader xmlns="sap.m" title="{i18n>Prod}:{InspOper>/Qpoint}" responsive="true" id="header0" backgroundDesign="Solid">
+					<ObjectHeader xmlns="sap.m" title="{i18n>Qpoint}:{InspOper>/Qpoint}" responsive="true" id="header0" backgroundDesign="Solid">
 						<attributes>
 							<ObjectAttribute id="idProdOrder" title="{i18n>Prod}" text="{InspOper>/Order}"/>
 							<ObjectAttribute id="idInspLot"  title="{i18n>Inspection} {i18n>Lot}" text="{InspOper>/Insplot}"/>

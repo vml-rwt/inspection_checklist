@@ -22,6 +22,9 @@ sap.ui.define([
 
 			// enable routing
 			this.getRouter().initialize();
+			
+			//increase the size of drop down.
+			this.getModel("DropDown").setSizeLimit(500);
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
